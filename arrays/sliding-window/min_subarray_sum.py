@@ -21,13 +21,16 @@ class Solution:
         window_sum = 0
 
         while y < len(nums) or window_sum >= target:
+            #shrink the window from the left
             if window_sum >= target:
                 min_len = min(y - x, min_len)
                 window_sum -= nums[x]
                 x += 1
+            #expand the window from the right
             elif y < len(nums):
                 window_sum += nums[y]
                 y += 1
+            #if the window is invalid, break the loop
             else:
                 break
 
